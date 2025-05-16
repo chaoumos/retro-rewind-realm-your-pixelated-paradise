@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "Retro Rewind Realm: Your Pixelated Paradise";
+const blogName = "retro-rewind-realm";
+const blogTheme = "A pixelated paradise dedicated to retro gaming.";
+const pageDescription = "Welcome to Retro Rewind Realm, your ultimate destination for all things retro gaming! Explore game reviews, console guides, and a vibrant community forum.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <section class="hero bg-gray-900 text-white py-20 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-5xl font-bold mb-6">Welcome to {blogName}!</h1>
+            <p class="text-xl mb-8">{blogTheme}</p>
+            <a href="/blog" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full inline-block">Explore the Blog</a>
+        </div>
+    </section>
+
+    <section class="py-12 px-4">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">About Retro Rewind Realm</h2>
+            <p class="text-gray-700 leading-relaxed mb-8">
+                Step back in time and immerse yourself in the golden age of gaming! Retro Rewind Realm is your one-stop destination for everything retro. From classic console reviews to in-depth guides and a thriving community forum, we've got you covered.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Game Reviews</h3>
+                    <p class="text-gray-600">Discover our extensive collection of retro game reviews, categorized by console and era. Relive your favorite classics and uncover hidden gems!</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Console Guides</h3>
+                    <p class="text-gray-600">Delve into the history, specifications, and collecting tips for your favorite retro consoles. Become a retro gaming expert!</p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Community Forum</h3>
+                    <p class="text-gray-600">Join our vibrant community forum to discuss your favorite retro games, share your collections, and connect with fellow gamers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</BaseLayout>

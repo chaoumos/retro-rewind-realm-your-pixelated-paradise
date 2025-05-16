@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const pageTitle = "Blog";
+const pageDescription = "The blog listing page for Retro Rewind Realm.";
+const blogName = "retro-rewind-realm";
+const projectTitle = "Retro Rewind Realm: Your Pixelated Paradise";
+const posts = await getCollection('blog');
+posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<div class="container mx-auto py-8">
+		<h1 class="text-3xl font-bold mb-4">{pageTitle}</h1>
+		<p class="mb-4">{pageDescription}</p>
+
+		<ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			{posts.map((post) => (
+				<li class="bg-gray-800 rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-300">
+					<a href={`/blog/${post.slug}/`} class="block">
+						<h2 class="text-xl font-semibold mb-2 text-white">{post.data.title}</h2>
+						<FormattedDate date={post.data.pubDate} />
+						<p class="text-gray-300 mt-2">{post.data.description}</p>
+					</a>
+				</li>
+			))}
+		</ul>
+
+		{/* Placeholder for Pagination - Can be implemented later */}
+		{/* <div class="mt-8">
+			<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Previous</button>
+			<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+		</div> */}
+	</div>
+</BaseLayout>
